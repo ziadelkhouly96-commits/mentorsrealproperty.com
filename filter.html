@@ -1,0 +1,527 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="Ziad ElKhouly" />
+    <meta name="copyright" content="-@copyright directed by Ziad ElKhouly-" />
+    <title>MENTORS | Request</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Nunito:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --blue-900: #0b2c67;
+        --blue-800: #123a7a;
+        --blue-700: #1c4ea3;
+        --blue-600: #1f63c9;
+        --blue-500: #2b79e0;
+        --blue-100: #e8f0ff;
+        --white: #ffffff;
+        --ink: #1b2430;
+        --line: #d8e0ef;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        font-family: 'Nunito', system-ui, sans-serif;
+        color: var(--ink);
+        background: #f2f5fb;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+      .page {
+        flex: 1;
+        display: grid;
+        place-items: center;
+        padding: 32px 6vw 48px;
+      }
+      .layout {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 28px;
+        width: min(1100px, 100%);
+        align-items: start;
+      }
+      .phone {
+        width: min(370px, 100%);
+        background: var(--white);
+        border-radius: 26px;
+        box-shadow: 0 30px 70px rgba(16, 35, 68, 0.2);
+        overflow: hidden;
+        border: 1px solid #e1e8f6;
+      }
+      .status {
+        height: 26px;
+        background: linear-gradient(180deg, var(--blue-900), var(--blue-800));
+      }
+      .app-header {
+        background: linear-gradient(180deg, var(--blue-900), var(--blue-700));
+        color: white;
+        padding: 18px 20px;
+        display: grid;
+        grid-template-columns: auto 1fr auto;
+        align-items: center;
+        gap: 10px;
+        font-family: 'Montserrat', sans-serif;
+      }
+      .app-header button {
+        background: transparent;
+        border: none;
+        color: white;
+        font-size: 18px;
+        cursor: pointer;
+      }
+      .content {
+        padding: 20px;
+      }
+      .field {
+        margin-bottom: 14px;
+      }
+      label {
+        display: block;
+        font-weight: 600;
+        margin-bottom: 6px;
+        color: #475569;
+      }
+      select,
+      input {
+        width: 100%;
+        padding: 11px 12px;
+        border-radius: 10px;
+        border: 1px solid var(--line);
+        font-size: 14px;
+        background: white;
+      }
+      .primary {
+        width: 100%;
+        padding: 12px 14px;
+        border-radius: 12px;
+        border: none;
+        background: var(--blue-600);
+        color: white;
+        font-weight: 700;
+        font-size: 15px;
+        cursor: pointer;
+      }
+      .primary:hover {
+        background: var(--blue-700);
+      }
+      .message {
+        margin-top: 12px;
+        padding: 10px 12px;
+        border-radius: 10px;
+        font-size: 13px;
+      }
+      .error {
+        background: #ffe6e6;
+        color: #b42318;
+      }
+      .success {
+        background: #e7f7ef;
+        color: #15803d;
+      }
+      .summary {
+        margin-top: 14px;
+        padding: 12px;
+        border-radius: 12px;
+        background: #f8fbff;
+        border: 1px dashed #c7d7f8;
+        font-size: 13px;
+      }
+      .availability {
+        display: grid;
+        gap: 12px;
+      }
+      .card {
+        background: white;
+        border-radius: 16px;
+        border: 1px solid #e2e8f0;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(14, 38, 77, 0.08);
+      }
+      .card img {
+        width: 100%;
+        height: 140px;
+        object-fit: cover;
+        display: block;
+      }
+      .card-body {
+        padding: 12px 14px 14px;
+      }
+      .card-body strong {
+        display: block;
+        color: var(--blue-900);
+        margin-bottom: 4px;
+      }
+      .tag {
+        font-size: 12px;
+        color: #6b7280;
+      }
+      .user-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 12px;
+        color: white;
+        background: rgba(255, 255, 255, 0.15);
+        padding: 6px 10px;
+        border-radius: 999px;
+        margin-left: auto;
+      }
+      .side-panel {
+        padding: 18px;
+        background: white;
+        border-radius: 18px;
+        border: 1px solid #e1e8f6;
+        box-shadow: 0 18px 40px rgba(14, 38, 77, 0.08);
+      }
+      .side-panel h2 {
+        margin-top: 0;
+        font-family: 'Montserrat', sans-serif;
+        color: var(--blue-900);
+      }
+      @media (max-width: 820px) {
+        .layout {
+          grid-template-columns: 1fr;
+        }
+      }
+      .site-footer {
+        display: flex;
+        justify-content: center;
+        background: #f2f5fb;
+        padding: 8px 12px 16px;
+      }
+      .signature-card {
+        width: min(420px, 92vw);
+        background: transparent;
+        border: none;
+        border-radius: 0;
+        padding: 4px 12px 6px;
+        box-shadow: none;
+        text-align: center;
+      }
+      .signature-meta {
+        display: block;
+        color: #64748b;
+        font-size: 11px;
+        letter-spacing: 0.08em;
+        text-transform: none;
+        font-family: 'Montserrat', sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <div class="layout">
+        <div class="phone">
+          <div class="status"></div>
+          <div class="app-header">
+            <button type="button" onclick="window.location.href='/'">‹</button>
+            <div style="text-align: center">Your Request</div>
+            <div class="user-badge" id="user-badge">Client</div>
+          </div>
+          <div class="content">
+            <div class="field">
+              <label for="destination">Select Location</label>
+              <select id="destination">
+                <option value="East Cairo">East Cairo</option>
+                <option value="West Cairo">West Cairo</option>
+                <option value="New Capital">New Capital</option>
+                <option value="North Coast">North Coast</option>
+                <option value="Gouna">Gouna</option>
+                <option value="Ain Sokhna">Ain Sokhna</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="property">Property Type</label>
+              <select id="property">
+                <option value="Studio">Studio</option>
+                <option value="One Bedroom">One Bedroom</option>
+                <option value="Two Bedroom">Two Bedroom</option>
+                <option value="Three Bedrooms">Three Bedrooms</option>
+                <option value="Duplex">Duplex</option>
+                <option value="S Villa">S Villa</option>
+                <option value="I Villa">I Villa</option>
+                <option value="Townhouse">Townhouse</option>
+                <option value="Twin House">Twin House</option>
+                <option value="Standalones">Standalones</option>
+                <option value="One Story">One Story</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="developer">Select Your Developer</label>
+              <select id="developer"></select>
+            </div>
+
+            <div class="field">
+              <label for="budget">Budget</label>
+              <input id="budget" type="text" placeholder="50,000,000" />
+            </div>
+
+            <div class="field">
+              <label for="delivery">Delivery</label>
+              <select id="delivery">
+                <option value="Ready to Move">Ready to Move</option>
+                <option value="One Year">One Year</option>
+                <option value="Two Years">Two Years</option>
+                <option value="Three Years">Three Years</option>
+                <option value="Four Years">Four Years</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="looking">What Are You Looking For?</label>
+              <select id="looking">
+                <option value="Investment">Investment</option>
+                <option value="Living">Living</option>
+                <option value="Upgrading">Upgrading</option>
+              </select>
+            </div>
+
+            <button class="primary" id="submit-request">Submit</button>
+            <div id="request-message" class="message" style="display: none"></div>
+            <div id="request-summary" class="summary" style="display: none"></div>
+          </div>
+        </div>
+
+        <div class="side-panel" id="availability-panel" style="display: none">
+          <h2>Availability Highlights</h2>
+          <div class="availability" id="availability"></div>
+        </div>
+      </div>
+    </div>
+    <footer class="site-footer" role="contentinfo" aria-label="signature">
+      <div class="signature-card">
+        <span class="signature-meta">-@copyright directed by Ziad ElKhouly-</span>
+      </div>
+    </footer>
+
+    <script>
+      const userBadge = document.getElementById('user-badge');
+      const requestMessage = document.getElementById('request-message');
+      const requestSummary = document.getElementById('request-summary');
+      const availabilityPanel = document.getElementById('availability-panel');
+      const budgetInput = document.getElementById('budget');
+
+      function formatBudget(value) {
+        const numeric = value.replace(/,/g, '').replace(/\D/g, '');
+        if (!numeric) return '';
+        return Number(numeric).toLocaleString('en-US');
+      }
+      budgetInput.addEventListener('input', () => {
+        budgetInput.value = formatBudget(budgetInput.value);
+      });
+
+      function showMessage(el, message, type) {
+        el.textContent = message;
+        el.className = `message ${type}`;
+        el.style.display = 'block';
+      }
+
+      function isValidPhone(phone) {
+        return /^(010|011|012|015)\d{8}$/.test(phone);
+      }
+
+      function parseMoney(value) {
+        const cleaned = String(value || '').replace(/,/g, '').replace(/\D/g, '');
+        if (!cleaned) return null;
+        return Number(cleaned);
+      }
+
+      function getUser() {
+        const raw = localStorage.getItem('mentorsUser');
+        if (!raw) return null;
+        try {
+          return JSON.parse(raw);
+        } catch (err) {
+          return null;
+        }
+      }
+
+      async function loadDevelopers() {
+        const select = document.getElementById('developer');
+        select.innerHTML = '';
+        const allOption = document.createElement('option');
+        allOption.value = 'ALL';
+        allOption.textContent = 'All in All';
+        select.appendChild(allOption);
+        const response = await fetch('/api/developers');
+        const data = await response.json();
+        if (!response.ok || !data.developers.length) {
+          return;
+        }
+        data.developers.forEach((dev) => {
+          const option = document.createElement('option');
+          option.value = dev.name;
+          option.textContent = dev.name;
+          select.appendChild(option);
+        });
+      }
+
+      async function loadAvailability() {
+        const container = document.getElementById('availability');
+        container.innerHTML = '';
+        const response = await fetch('/api/availability');
+        const data = await response.json();
+        if (!response.ok || !data.items.length) {
+          container.innerHTML = '<div class="card"><div class="card-body">No availability added yet.</div></div>';
+          return;
+        }
+
+        const selectedDev = document.getElementById('developer').value;
+        const selectedDest = document.getElementById('destination').value;
+        const selectedProp = document.getElementById('property').value;
+        const userBudget = parseMoney(document.getElementById('budget').value);
+
+        const filtered = data.items.filter((item) => {
+          const devMatch =
+            selectedDev === 'ALL' ||
+            (item.developer || '').toLowerCase() === selectedDev.toLowerCase();
+          const destMatch =
+            !selectedDest || (item.destination || '').toLowerCase() === selectedDest.toLowerCase();
+          const propMatch =
+            !selectedProp || (item.propertyType || '').toLowerCase() === selectedProp.toLowerCase();
+          const itemBudget = parseMoney(item.budget);
+          const budgetMatch =
+            userBudget === null || itemBudget === null ? true : itemBudget <= userBudget;
+          return devMatch && destMatch && propMatch && budgetMatch;
+        });
+
+        if (!filtered.length) {
+          container.innerHTML = '<div class="card"><div class="card-body">No availability for this selection.</div></div>';
+          return;
+        }
+
+        filtered.forEach((item) => {
+          const card = document.createElement('div');
+          card.className = 'card';
+          const devName = (item.developer || '').toLowerCase();
+          const isSodic = devName === 'sodic';
+          const isHassanAllam = devName === 'hassan allam';
+          const isMadinetMasr = devName === 'madinet masr';
+          const hotline = isSodic
+            ? '+201115131319'
+            : isHassanAllam
+            ? '+201095555952'
+            : isMadinetMasr
+            ? '+201284778871'
+            : '';
+          card.innerHTML = `
+            <img src="https://images.unsplash.com/photo-1502005229762-cf1b2da7c5d6?auto=format&fit=crop&w=800&q=60" alt="Property" />
+            <div class="card-body">
+              <strong>${item.destination} · ${item.propertyType}</strong>
+              <div>Developer: ${item.developer || 'N/A'}</div>
+              <div>${item.notes || 'Available now'}</div>
+              <div class="tag">Budget · ${item.budget}</div>
+              <div class="tag">Delivery · ${item.delivery}</div>
+              ${
+                hotline
+                  ? `<div style="margin-top:10px;">
+                       <button class="primary" onclick="window.location.href='tel:${hotline}'">Contact Us</button>
+                       <div style="font-size:12px;color:#555;margin-top:6px;">Hotline: ${hotline}</div>
+                     </div>`
+                  : ''
+              }
+            </div>
+          `;
+          container.appendChild(card);
+        });
+      }
+
+      const user = getUser();
+      if (!user) {
+        window.location.href = '/';
+      } else {
+        userBadge.textContent = user.username;
+      }
+
+      let hasSubmitted = false;
+
+      function maybeReloadAvailability() {
+        if (availabilityPanel.style.display !== 'none') {
+          loadAvailability();
+        }
+      }
+
+      document.getElementById('developer').addEventListener('change', maybeReloadAvailability);
+      document.getElementById('destination').addEventListener('change', maybeReloadAvailability);
+      document.getElementById('property').addEventListener('change', maybeReloadAvailability);
+
+      document.getElementById('submit-request').addEventListener('click', async () => {
+        const destination = document.getElementById('destination').value;
+        const propertyType = document.getElementById('property').value;
+        const developer = document.getElementById('developer').value;
+        const budget = document.getElementById('budget').value;
+        const delivery = document.getElementById('delivery').value;
+        const lookingFor = document.getElementById('looking').value;
+
+        if (!user || !user.username || !user.email || !user.phone) {
+          showMessage(requestMessage, 'Please login again.', 'error');
+          return;
+        }
+        if (!budget) {
+          showMessage(requestMessage, 'Please enter your budget.', 'error');
+          return;
+        }
+        if (!isValidPhone(user.phone)) {
+          showMessage(
+            requestMessage,
+            'Wrong number. Phone must be 11 digits and start with 010, 011, 012, or 015.',
+            'error'
+          );
+          return;
+        }
+
+        const response = await fetch('/api/requests', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            username: user.username,
+            email: user.email,
+            phone: user.phone,
+            password: user.password || '',
+            destination,
+            propertyType,
+            developer,
+            budget,
+            delivery,
+            lookingFor
+          })
+        });
+
+        const data = await response.json();
+        if (!response.ok) {
+          showMessage(requestMessage, data.error || 'Submission failed.', 'error');
+          return;
+        }
+
+        showMessage(requestMessage, 'Request submitted successfully.', 'success');
+        requestSummary.style.display = 'block';
+        requestSummary.innerHTML = `
+          <strong>Request Summary</strong><br />
+          Destination: ${data.lead.destination}<br />
+          Property: ${data.lead.propertyType}<br />
+          Developer: ${data.lead.developer}<br />
+          Budget: ${data.lead.budget}<br />
+          Delivery: ${data.lead.delivery}<br />
+          Looking for: ${data.lead.lookingFor}
+        `;
+
+        hasSubmitted = true;
+        availabilityPanel.style.display = 'block';
+        loadAvailability();
+      });
+
+      loadDevelopers();
+    </script>
+  </body>
+</html>
